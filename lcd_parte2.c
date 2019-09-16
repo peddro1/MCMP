@@ -43,12 +43,12 @@ void envia_dado_lcd(unsigned char dado){
 	_delay_ms(20);
 }
 
-void envia_num_lcd(int dado){
-	char a = (char)dado;
+void envia_num_lcd( int dado){
+	unsigned char a = dado +'0';
 	PORTC=0x00;
 	PORTC=0b00000001;
 	PORTC=0b00000001;
-	Barramento_lcd=dado;
+	Barramento_lcd = a;
 	PORTC=0b00000101;
 	PORTC=0b00000001;
 	_delay_ms(20);
@@ -86,7 +86,7 @@ void relogio(){
 								
 								envia_comando_lcd(0xCB);
 								envia_num_lcd(f);
-								_delay_ms(1000);	
+								_delay_ms(980);	
 							}
 						}
 					}
